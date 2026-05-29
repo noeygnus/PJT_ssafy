@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>은행 검색 지도</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">10 PJT</p>
+        <h1>은행 검색 지도</h1>
+      </div>
+      <div class="header-meta">
+        <span>중심 좌표: 강남역</span>
+        <span>출발지: 멀티캠퍼스 역삼</span>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="search-panel" aria-label="은행 검색 조건">
+        <section class="panel-section">
+          <h2>검색 조건</h2>
+          <form id="search-form" class="search-form">
+            <label class="field">
+              <span>광역시/도</span>
+              <select id="province-select" required>
+                <option value="">광역시/도를 선택하세요</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span>시/군/구</span>
+              <select id="district-select" required disabled>
+                <option value="">시/군/구를 선택하세요</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span>은행명</span>
+              <select id="bank-select" required>
+                <option value="">은행을 선택하세요</option>
+              </select>
+            </label>
+
+            <div class="button-row">
+              <button type="submit" class="primary-button">찾기</button>
+              <button type="button" id="reset-button" class="secondary-button">초기화</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="panel-section route-summary" aria-live="polite">
+          <h2>경로 안내</h2>
+          <dl>
+            <div>
+              <dt>출발</dt>
+              <dd>멀티캠퍼스 역삼</dd>
+            </div>
+            <div>
+              <dt>도착</dt>
+              <dd id="route-destination">은행을 선택하세요</dd>
+            </div>
+            <div>
+              <dt>거리/시간</dt>
+              <dd id="route-distance">-</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="panel-section results-section">
+          <div class="section-title-row">
+            <h2>검색 결과</h2>
+            <span id="result-count">0개</span>
+          </div>
+          <p id="status-message" class="status-message">Kakao 지도 API를 불러오는 중입니다.</p>
+          <ol id="branch-list" class="branch-list"></ol>
+        </section>
+      </aside>
+
+      <section class="map-area" aria-label="Kakao 지도">
+        <div id="map" class="map">
+          <div id="map-placeholder" class="map-placeholder">
+            <strong>지도를 준비하고 있습니다.</strong>
+            <span>API 키 설정 후 Live Server에서 실행하면 Kakao 지도가 표시됩니다.</span>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <noscript>JavaScript를 활성화해야 은행 검색 지도를 사용할 수 있습니다.</noscript>
+  <script src="./js/data.js"></script>
+  <script src="./js/apikey.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+window.KAKAO_CONFIG = {
+  JAVASCRIPT_KEY: "발급받은_API_KEY",
+  MOBILITY_REST_KEY: "발급받은_REST_KEY"
+};
